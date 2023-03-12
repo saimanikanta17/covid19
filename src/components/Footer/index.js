@@ -11,8 +11,10 @@ const Footer = () => (
     <h1 className="footer-logo">
       COVID19<span className="span-logo">INDIA</span>
     </h1>
-    <p>we stand with everyone fighting on the front lines</p>
-    <div className="social-icons">
+    <p className="footer-para">
+      we stand with everyone fighting on the front lines
+    </p>
+    <div className="footer-social-icons">
       <VscGithubAlt size="45px" />
       <FiInstagram size="45px" />
       <FaTwitter size="45px" />

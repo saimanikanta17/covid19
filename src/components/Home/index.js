@@ -119,15 +119,17 @@ class Home extends Component {
             ))}
           </ul>
         ) : (
-          <div>
+          <>
             <CountryStats stateWiseData={stateWiseData} />
-            <StateStats
-              stateWiseData={stateWiseData}
-              sortingAsc={this.sortingAsc}
-              sortingDesc={this.sortingDesc}
-            />
+            <div className="state-stats">
+              <StateStats
+                stateWiseData={stateWiseData}
+                sortingAsc={this.sortingAsc}
+                sortingDesc={this.sortingDesc}
+              />
+            </div>
             <Footer />
-          </div>
+          </>
         )}
       </div>
     )
@@ -148,7 +150,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="bg-container">
+      <div className="home-container">
         <Header />
         {this.renderStats()}
       </div>

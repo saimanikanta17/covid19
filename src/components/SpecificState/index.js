@@ -1,5 +1,7 @@
 import {Component} from 'react'
 
+import {Link} from 'react-router-dom'
+
 import {LineChart, XAxis, YAxis, Tooltip, Legend, Line} from 'recharts'
 
 import Loader from 'react-loader-spinner'
@@ -37,7 +39,6 @@ class SpecificState extends Component {
 
   componentDidMount() {
     this.getStateDetails()
-    this.getTimelineData()
   }
 
   getFormattedData = (eachDistrict, districts) => {
@@ -106,34 +107,50 @@ class SpecificState extends Component {
     const response = await fetch(apiUrl)
     const fetchedData = await response.json()
 
-    const {districts} = fetchedData[stateCode]
-    const districtsNames = Object.keys(districts)
-    const districtsDetails = districtsNames.map(eachDistrict =>
-      this.getFormattedData(eachDistrict, districts),
-    )
-    districtsDetails.sort((a, b) => b[caseType] - a[caseType])
+    const codes = Object.keys(fetchedData)
+    if (codes.includes(stateCode)) {
+      const stateKeys = Object.keys(fetchedData[stateCode])
+      if (stateKeys.includes('districts')) {
+        const {districts} = fetchedData[stateCode]
+        const districtsNames = Object.keys(districts)
+        const districtsDetails = districtsNames.map(eachDistrict =>
+          this.getFormattedData(eachDistrict, districts),
+        )
+        districtsDetails.sort((a, b) => b[caseType] - a[caseType])
 
-    const lastUpdated = fetchedData[stateCode].meta.last_updated
+        const lastUpdated = fetchedData[stateCode].meta.last_updated
 
-    const stateName = statesList.find(state => state.state_code === stateCode)
-      .state_name
-    const stateStats = fetchedData[stateCode].total
-    const {confirmed, deceased, recovered, tested} = stateStats
-    const stateDetails = {
-      stateCode,
-      stateName,
-      confirmed,
-      deceased,
-      recovered,
-      active: confirmed - (recovered + deceased),
-      tested,
-      lastUpdated,
+        const stateName = statesList.find(
+          state => state.state_code === stateCode,
+        ).state_name
+        const stateStats = fetchedData[stateCode].total
+        const {confirmed, deceased, recovered, tested} = stateStats
+        const stateDetails = {
+          stateCode,
+          stateName,
+          confirmed,
+          deceased,
+          recovered,
+          active: confirmed - (recovered + deceased),
+          tested,
+          lastUpdated,
+        }
+        this.setState({
+          stateDetails,
+          districtsDetails,
+          apiStatus: apiStatusConstants.success,
+        })
+        this.getTimelineData()
+      } else {
+        this.setState({
+          apiStatus: apiStatusConstants.failure,
+        })
+      }
+    } else {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
+      })
     }
-    this.setState({
-      stateDetails,
-      districtsDetails,
-      apiStatus: apiStatusConstants.success,
-    })
   }
 
   getTimelineData = async () => {
@@ -147,6 +164,7 @@ class SpecificState extends Component {
 
     const url = 'https://apis.ccbp.in/covid19-timelines-data'
     const responseTime = await fetch(url)
+
     const fetchedDataTime = await responseTime.json()
 
     const {dates} = fetchedDataTime[stateCode]
@@ -270,6 +288,23 @@ class SpecificState extends Component {
     )
   }
 
+  renderFailureView = () => (
+    <div className="failure-container">
+      <img
+        className="not-found-img"
+        src="https://res.cloudinary.com/djy2od68c/image/upload/v1673070019/Group_7484_mvminn.png"
+        alt="not-found-pic"
+      />
+      <h1>PAGE NOT FOUND</h1>
+      <p>we are sorry, the page you requested could not be found</p>
+      <Link to="/">
+        <button type="button" className="home-btn">
+          Home
+        </button>
+      </Link>
+    </div>
+  )
+
   renderStateDetails = () => {
     const {apiStatus} = this.state
     switch (apiStatus) {
@@ -277,6 +312,8 @@ class SpecificState extends Component {
         return this.renderLoader()
       case apiStatusConstants.success:
         return this.renderStateDetailsView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
       default:
         return null
     }

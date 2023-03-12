@@ -14,7 +14,7 @@ const DateWiseBarGraph = props => {
   }
 
   return (
-    <div>
+    <div className="bar-chart">
       <BarChart width={800} height={300} data={timeLineDetails}>
         <XAxis dataKey="date" />
         <Tooltip />

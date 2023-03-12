@@ -4,13 +4,57 @@
 }
 .question-style {
   color: #94a3b8;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
 }
 .answer-style {
   color: #007bff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
 }
 .about-container {
   color: #f8fafc;
   background-color: #161625;
   min-height: 100vh;
+  max-width: 100vw;
+  font-family: 'Roboto';
+  font-style: normal;
+}
+.faq-container {
   padding: 20px;
+}
+.about-heading {
+  font-weight: 500;
+  font-size: 24px;
+  color: #f8fafc;
+}
+.updated-date {
+  font-weight: 400;
+  font-size: 14px;
+  color: #94a3b8;
+}
+.about-para {
+  font-weight: 500;
+  font-size: 16px;
+  color: #e2e8f0;
+}
+
+@media screen and (min-width: 768px) {
+  .about-heading {
+    font-size: 48px;
+  }
+  .updated-date {
+    font-size: 18px;
+  }
+  .about-para {
+    font-size: 24px;
+  }
+  .question-style {
+    font-size: 16px;
+  }
+  .answer-style {
+    font-size: 16px;
+  }
 }

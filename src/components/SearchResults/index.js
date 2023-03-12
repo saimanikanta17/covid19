@@ -12,9 +12,9 @@ const SearchResults = props => {
   return (
     <Link to={`/state/${stateCode}`} className="link-bar">
       <li className="search-bar">
-        <p>{stateName}</p>
+        <p className="search-state-name">{stateName}</p>
         <div className="icon">
-          <p>{stateCode}</p>
+          <p className="state-code">{stateCode}</p>
           <BiChevronRightSquare size="20px" fill="#facc15" />
         </div>
       </li>

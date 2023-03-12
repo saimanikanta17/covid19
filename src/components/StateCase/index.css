@@ -3,3 +3,39 @@
   border-style: none;
   cursor: pointer;
 }
+.stat-card {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+.state-confirmed-card {
+  color: #ff073a;
+  background-color: #331427;
+}
+.state-active-card {
+  color: #007bff;
+  background-color: #132240;
+}
+
+.state-recovered-card {
+  color: #28a745;
+  background-color: #182829;
+}
+.state-deceased-card {
+  color: #6c757d;
+  background-color: #212230;
+}
+
+.pic-size {
+  width: 30px;
+  height: 30px;
+}
+.state-stats-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -21,11 +21,11 @@ const StateCase = props => {
   }
 
   return (
-    <div className="stats-container">
+    <div className="state-stats-container">
       <button
         type="button"
         onClick={changeToConfirmed}
-        className={`confirmed-card btn ${'stat-card'}`}
+        className="state-confirmed-card btn stat-card"
       >
         <p>Confirmed</p>
         <img
@@ -38,7 +38,7 @@ const StateCase = props => {
       <button
         type="button"
         onClick={changeToActive}
-        className={`active-card btn ${'stat-card'}`}
+        className="state-active-card btn stat-card"
       >
         <p>Active</p>
         <img
@@ -51,7 +51,7 @@ const StateCase = props => {
       <button
         type="button"
         onClick={changeToRecovered}
-        className={`recovered-card btn ${'stat-card'}`}
+        className="state-recovered-card btn stat-card"
       >
         <p>Recovered</p>
         <img
@@ -64,7 +64,7 @@ const StateCase = props => {
       <button
         type="button"
         onClick={changeToDeceased}
-        className={`deceased-card btn ${'stat-card'}`}
+        className="state-deceased-card btn stat-card"
       >
         <p>Deceased</p>
         <img

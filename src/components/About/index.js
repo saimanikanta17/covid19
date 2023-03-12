@@ -53,16 +53,19 @@ class About extends Component {
   renderFaqs = () => {
     const {faqsList} = this.state
     return (
-      <>
-        <h1>About</h1>
-        <p>COVID-19 vaccines be ready for distribution</p>
+      <div className="faq-container">
+        <h1 className="about-heading">About</h1>
+        <p className="updated-date">Last update on march 28th 2021.</p>
+        <p className="about-para">
+          COVID-19 vaccines be ready for distribution
+        </p>
         <ul className="faq-card">
           {faqsList.map(faq => (
             <Faqs key={faq.qno} faq={faq} />
           ))}
         </ul>
         <Footer />
-      </>
+      </div>
     )
   }
 
@@ -81,9 +84,9 @@ class About extends Component {
 
   render() {
     return (
-      <div>
+      <div className="about-container">
         <Header />
-        <div className="about-container">{this.renderAboutView()}</div>
+        {this.renderAboutView()}
       </div>
     )
   }

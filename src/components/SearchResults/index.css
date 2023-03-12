@@ -9,6 +9,7 @@
   align-items: center;
   padding: 10px;
   border-radius: 6px;
+  margin-right: 10px;
 }
 .search-bar {
   color: #64748b;
@@ -26,6 +27,11 @@
 .link-bar {
   text-decoration: none;
 }
+.search-state-name {
+  color: #64748b;
+  font-size: 16px;
+  margin-left: 10px;
+}
 
 @media screen and (min-width: 798px) {
   .icon {
@@ -33,7 +39,13 @@
     height: 35px;
   }
   .search-bar {
-    width: 450px;
-    height: 45px;
+    width: 700px;
+    height: 60px;
+  }
+  .search-state-name {
+    font-size: 16px;
+  }
+  .state-code {
+    font-size: 16px;
   }
 }

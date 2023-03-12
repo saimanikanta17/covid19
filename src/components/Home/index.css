@@ -1,7 +1,9 @@
-.bg-container {
+.home-container {
   min-height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
   background-color: #161625;
+  display: flex;
+  flex-direction: column;
 }
 .loader-container {
   height: 70vh;
@@ -19,12 +21,13 @@
 .search-card {
   background-color: #2f2f43;
   padding: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 8px;
   width: 80vw;
   height: 45px;
   display: flex;
   align-items: center;
+  align-self: center;
 }
 .search-input {
   background-color: transparent;
@@ -42,12 +45,21 @@
   font-family: 'Roboto';
 }
 
+.state-stats {
+  width: 90vw;
+  overflow-x: auto;
+}
+
 @media screen and (min-width: 768px) {
   .search-card {
-    width: 450px;
+    width: 700px;
+    height: 70px;
     margin-top: 35px;
   }
   .search-input {
     font-size: 18px;
+  }
+  .home-container {
+    align-items: center;
   }
 }

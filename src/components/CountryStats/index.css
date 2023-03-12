@@ -1,17 +1,26 @@
 .stats-container {
-  width: 80vw;
+  width: 100vw;
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  justify-content: center;
   flex-wrap: wrap;
+  padding: 10px;
 }
 .stat-card {
-  width: 150px;
-  height: 150px;
+  font-family: 'Roboto';
+  font-style: normal;
+  width: 100px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
+}
+.country-case-name {
+  font-size: 12px;
+}
+.country-case-count {
+  font-size: 16px;
 }
 .confirmed-card {
   color: #ff073a;
@@ -28,12 +37,29 @@
 }
 
 .pic-size {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
 }
 
 @media screen and (min-width: 768px) {
   .stats-container {
     width: 800px;
+    justify-content: space-evenly;
+  }
+  .country-case-name {
+    font-size: 16px;
+  }
+  .country-case-count {
+    font-size: 24px;
+  }
+  .stat-card {
+    font-family: 'Roboto';
+    font-style: normal;
+    width: 200px;
+    height: 200px;
+  }
+  .pic-size {
+    width: 24px;
+    height: 24px;
   }
 }

@@ -7,10 +7,9 @@
   justify-content: center;
   align-items: center;
   color: #94a3b8;
-  font-size: 16px;
-  padding: 50px;
+  padding: 25px;
 }
-.social-icons {
+.footer-social-icons {
   display: flex;
   justify-content: space-between;
   margin: 20px;
@@ -18,7 +17,24 @@
 }
 .footer-logo {
   font-family: 'Bree Serif';
+  font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   color: #f8fafc;
+}
+.footer-para {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #94a3b8;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .footer-logo {
+    font-size: 24px;
+  }
+  .footer-para {
+    font-size: 16px;
+  }
 }
