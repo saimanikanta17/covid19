@@ -1,6 +1,6 @@
 import {Component} from 'react'
 
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 
 import {LineChart, XAxis, YAxis, Tooltip, Legend, Line} from 'recharts'
 
@@ -313,7 +313,7 @@ class SpecificState extends Component {
       case apiStatusConstants.success:
         return this.renderStateDetailsView()
       case apiStatusConstants.failure:
-        return this.renderFailureView()
+        return <Redirect to="/bad-path" />
       default:
         return null
     }
